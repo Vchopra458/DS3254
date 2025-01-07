@@ -52,4 +52,5 @@
 I would choose such a laptop because it would fulfill all my requirements and concerns regarding entertainment, gaming, and coding. 
 - Bulkiness: Such laptops might be difficult to carry around due to their size and weight.
 - Design: Gaming laptops often have eye-catching and unconventional designs, which may not appeal to everyone. 
+
 At the end of the day, I am the one using the laptop, so these factors are acceptable to me.
