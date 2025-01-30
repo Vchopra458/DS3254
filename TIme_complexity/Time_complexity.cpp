@@ -87,8 +87,8 @@ int main(){
             int i =0;
             int *arr = new int[count];//initialising the array with size count that is current array size as it is increasing order we add one to count each time the loop runs to automatically create new array of increasing size
             while (it != end) {
-                string token = *it;//converting string type casted integer into integer
-                arr[i]=std::stoi(token);// giving each array element a integer 
+                string token = *it;
+                arr[i]=std::stoi(token);// giving each array element a integer and converting string type casted integer into integer 
                 i++;
                 ++it;
             }
