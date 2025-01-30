@@ -9,16 +9,18 @@ using namespace std;
 
 void insertion_sort(int arr[],int size){
     chrono::duration<double> total_duration = chrono::seconds(0); // initializing with zero second
+    int *tempArr= new int[size];
     for(int x=0;x<10;x++){   //running the same array 10 times for better average     
+        copy(arr,arr+size,tempArr);//copying the original array data in temp array as same array is to be run 10 times so after first iteration it will be sorted in original and to avoid that we create tempArr
         auto start=chrono::high_resolution_clock::now();
         for(int i =0;i<size;i++){ //Insertion sort
-            int key=arr[i];
+            int key=tempArr[i];
             int j=i-1;
-            while(j>=0 && arr[j]>key){
-                arr[j+1]=arr[j];
+            while(j>=0 && tempArr[j]>key){
+                tempArr[j+1]=tempArr[j];
                 j=j-1;
             }    
-            arr[j+1]=key;    
+            tempArr[j+1]=key;    
         }
         auto stop=chrono::high_resolution_clock::now();
         chrono::duration<double> duration=stop-start;
@@ -35,25 +37,27 @@ void insertion_sort(int arr[],int size){
 
 // get minimum elemnet index
 int getMin(int arr[], int i, int j) {
-int min_idx = i;
-for(int k = i + 1; k <= j; k++) {
-    if (arr[k] < arr[min_idx]) {
-        min_idx = k;
+    int min_idx = i;
+    for(int k = i + 1; k <= j; k++) {
+        if (arr[k] < arr[min_idx]) {
+            min_idx = k;
+            }
         }
-    }
-    return min_idx;
+        return min_idx;
 }
 
 
 void selection_sort(int arr[],int size){
     chrono::duration<double> total_duration = chrono::seconds(0); //initializing with zero time
+    int *tempArr= new int[size];
     for(int x=0;x<10;x++){ //running the same array 10 times for better time average
+        copy(arr,arr+size,tempArr);//copying the original array data in temp array as same array is to be run 10 times so after first iteration it will be sorted in original and to avoid that we create tempArr
         auto start=chrono::high_resolution_clock::now();
         for(int i=0;i<size;i++){
-            int min_ind= getMin(arr,i,size-1);
-            int temp=arr[i];
-            arr[i]=arr[min_ind];
-            arr[min_ind]=temp;
+            int min_ind= getMin(tempArr,i,size-1);
+            int temp=tempArr[i];
+            tempArr[i]=tempArr[min_ind];
+            tempArr[min_ind]=temp;
         }
         auto stop=chrono::high_resolution_clock::now();
         chrono::duration<double> duration=stop-start;
